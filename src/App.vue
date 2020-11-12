@@ -1,16 +1,15 @@
 <template>
-  <Style />
+  <TodoList />
 </template>
 
 
 <script>
-import Style from "./Style";
+import TodoList from "./TodoList";
 
 export default {
-  components: {Style}
-}
+  components: { TodoList },
+};
 </script>
 
 <style>
-
 </style>
