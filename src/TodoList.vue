@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="text" />
+    <input v-model="text" ref="ipt" />
     <button @click="addTodo">Summit</button>
     <ul>
       <li v-for="item in list" :key="item" @click="toggleDone(item)">
@@ -44,6 +44,10 @@ export default {
       this.list.push(item);
       this.text = "";
     },
+  },
+  mounted() {
+    this.$refs.ipt.focus();
+    // input.focus();
   },
 };
 </script>

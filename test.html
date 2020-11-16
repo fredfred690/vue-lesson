@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <input v-model.number="month">
+        <hr />
+        Daily pay : {{daily.toFixed(2)}}
+        <hr />
+        Hourly pay : {{hourly.toFixed(2)}}
+        <hr />
+        Minute pay : {{minute.toFixed(2)}}
+        <hr />
+        Second pay : {{second.toFixed(2)}}
+        <hr />
+        earned : {{earned.toFixed(2)}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: () => ({
+                month: 0,
+                start: Date.now(),
+                now: Date.now(),
+            }),
+            computed: {
+                daily() {
+                    return this.month / 30
+                },
+                hourly() {
+                    return this.daily / 8
+                },
+                minute() {
+                    return this.hourly / 60
+                },
+                second() {
+                    return this.minute / 60
+                },
+                earned() {
+                    return this.second * (this.now - this.start) / 1000
+                },
+
+            },
+            mounted() {
+                setInterval(this.update, 100);
+            },
+            methods: {
+                update() {
+                    this.now = Date.now();
+                }
+            }
+        })
+    </script>
+
+
+    <div id="root">
+        <Counter />
+    </div>
+
+    <!-- <div id="app">
+        <h1>{{count}}</h1>
+        <button @click="count+=1">add</button>
+        <button @click="show = !show">Toggle</button>
+        <h1 v-if="show">TEST</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script type="text/x-template" id="counter-template">
+    <div><h1>{{count}}</h1>
+    <button @click="count++">add</button></div>
+    </script>
+    <script>
+        Vue.component('counter', {
+            data: () => ({
+                count: 0
+            }),
+            template: '#counter-template',
+            // template: `
+            //     <div>
+            //             <h1>{{count}} </h1>
+            //             <button @click="count++">+</button>
+            //             </div>`,
+        });
+        new Vue({
+            el: '#root',
+        })
+    </script> -->
+</body>
+
+</html>

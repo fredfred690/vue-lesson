@@ -7,7 +7,9 @@
 import TodoList from "./TodoList";
 
 export default {
-  components: { TodoList },
+  components: {
+    TodoList,
+  },
 };
 </script>
 
