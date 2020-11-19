@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <input v-model="text" ref="ipt" />
-    <button @click="addTodo">Summit</button>
+  <v-container>
+    <v-row class="align-center">
+      <v-col cols="8" lg="3">
+        <v-text-field hide-details outlined v-model="text" ref="ipt" />
+      </v-col>
+      <v-col cols="4" lg="9">
+        <v-btn color="primary" @click="addTodo">Summit</v-btn>
+      </v-col>
+    </v-row>
     <ul>
       <li v-for="item in list" :key="item" @click="toggleDone(item)">
         <input type="checkbox" v-model="item.done" />
         {{ item.text }}
-        <button @click="deleteItem(item)">delete</button>
+        <v-btn x-small color="error" @click="deleteItem(item)">delete</v-btn>
       </li>
     </ul>
 
     <pre>{{ JSON.stringify(list, null, 2) }}</pre>
-  </div>
+  </v-container>
 </template>
 
 <script>

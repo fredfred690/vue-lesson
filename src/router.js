@@ -11,6 +11,7 @@ import Style from './Style'
 import Toggle from './Toggle'
 import Users from './Users'
 import Policy from './Policy'
+import UserTable from './UserTable'
 
 const routes = [
     {
@@ -48,6 +49,10 @@ const routes = [
     {
         path: '/policy',
         component: Policy
+    },
+    {
+        path: '/user-table',
+        component: UserTable
     },
 ];
 
