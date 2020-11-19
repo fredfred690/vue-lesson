@@ -10,7 +10,6 @@
     <router-link to="/style">Style</router-link>
     <router-link to="/toggle">Toggle</router-link>
     <router-link to="/users">Users</router-link>
-    <router-link to="/policy">Policy</router-link>
 
     {{ count }}
     <router-view />
